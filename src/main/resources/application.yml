@@ -1,1 +1,27 @@
+jobs:
+  agile:
+    cronExpression: "0/10 * * * * *"
+    chunkSize: 10
+    maxIssues: 20
 
+spring:
+  datasource:
+    url: "jdbc:h2:mem:batch_simple"
+    username: "sa"
+    password: ""
+    driverClassName: org.h2.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.H2Dialect
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+  batch:
+    job:
+      enabled: false
+
+logging:
+  level:
+    net.opatz: DEBUG
+    org.springframework.batch: DEBUG
